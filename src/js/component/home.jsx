@@ -10,7 +10,6 @@ const Home = () => {
 				<input
 				type="text"
 				placeholder="Write a task"
-				value={this.state.newTask}
 				/>
 			</div>
 		</div>
