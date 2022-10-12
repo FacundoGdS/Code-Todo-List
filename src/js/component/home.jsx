@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 //Podría agregar un event-listener y de forma
 //imperativa (DOM) generar un evento de "click"
@@ -41,8 +40,7 @@ const Home = () => {
       </div>
       <div className="text-center">
         <ul>
-          <li>Cook</li>
-          <li>Chill</li>
+        {tasks.map((task, index)=>{return <li key={index}>{task}</li>})}
         </ul>
       </div>
     </>
@@ -50,7 +48,3 @@ const Home = () => {
 };
 
 export default Home;
-
-//Home.propTypes = {
-//	title: PropTypes.string
-//  };
