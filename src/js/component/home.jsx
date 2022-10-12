@@ -6,14 +6,15 @@ import PropTypes from 'prop-types';
 //sobre el botón pero esto es REACT, seré declarativo.
 
 const Home = () => {
-  let task = [];
+  let task = []; //Debo evitar este tipo de dato (array) ya que uso React.
+  // Debo usar un estado (hook). No es Javascript a secas.
 
   const addTaskHandler = () => {
     console.log('clickeaste');
   };
   
-  const inputChangeHandler = () => {
-	console.log('El input fue modificado');
+  const inputChangeHandler = (event) => {
+	console.log(event.target.value);
   };
 
   return (
