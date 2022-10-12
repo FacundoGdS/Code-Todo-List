@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 //Podría agregar un event-listener y de forma
 //imperativa (DOM) generar un evento de "click"
@@ -7,22 +7,35 @@ import PropTypes from 'prop-types';
 
 const Home = () => {
   let task = []; //Debo evitar este tipo de dato (array) ya que uso React.
-  // Debo usar un estado (hook). No es Javascript a secas.
+  // Debo usar un estado (hook). No es Javascript a secas. Esto es JSX.
+
+  const [inputField, setInput] = useState("");//Default.
+  const [tasks, setTasks] = useState([]);
 
   const addTaskHandler = () => {
-    console.log('clickeaste');
+    const newTasks = [...tasks, inputField];
+    //newTasks.push(inputField);
+    setTasks(newTasks);
+    setInput('');
+    console.log(tasks);
   };
-  
-  const inputChangeHandler = (event) => {
-	console.log(event.target.value);
+
+  const inputChangeHandler = (event) => { //Seteo continuo.
+    setInput(event.target.value);
+    console.log(event.target.value);
   };
 
   return (
     <>
       <div className="text-center">
+        <h1>Todo-list</h1>
         <div>
-          <h1>Todo-list</h1>
-          <input onChange={inputChangeHandler} type="text" placeholder="Write a task" />
+          <input
+            onChange={inputChangeHandler}
+            type="text"
+            placeholder="Write a task"
+            value={inputField}
+          />
           <button onClick={addTaskHandler}>Add task</button>
         </div>
       </div>
