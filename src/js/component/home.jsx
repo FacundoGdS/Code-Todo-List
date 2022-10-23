@@ -12,11 +12,13 @@ const Home = () => {
   const [tasks, setTasks] = useState([]);
 
   const addTaskHandler = () => {
-    const newTasks = [...tasks, inputField];
+    if(inputField === "") {alert("Please, write a task.")}
+    else {const newTasks = [...tasks, inputField];
     //newTasks.push(inputField);
     setTasks(newTasks);
     setInput('');
     console.log(tasks);
+  };
   };
 
   const inputChangeHandler = (event) => { //Seteo continuo.
